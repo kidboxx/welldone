@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+</head>
+<style>
+ body {
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#container {
+  margin-top: 150px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+#correct-sign {
+  font-size: 74px;
+  color: green;
+  margin-top: 20px;
+}
+
+#happy-rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.happy {
+  position: absolute;
+  bottom: -50px;
+  font-size: 48px;
+}
+
+</style>
+
+
+</style>
+<script>
+ window.addEventListener("DOMContentLoaded", function() {
+  const happyRainContainer = document.getElementById("happy-rain");
+  
+  const createHappy = () => {
+    const happy = document.createElement("span");
+    happy.innerHTML = "&#x1F600;";
+    happy.classList.add("happy");
+    happy.style.left = Math.random() * 100 + "%";
+    happy.style.animationDuration = Math.random() * 3 + 1 + "s";
+    
+    happy.addEventListener("animationend", function() {
+      happy.remove();
+    });
+    
+    happyRainContainer.appendChild(happy);
+  };
+  
+  setInterval(createHappy, 300);
+}); 
+ 
+
+</script>
+<body>
+  <div id="container">
+    <h1>Well done! Your vote has been added sucessfully</h1>
+    <div id="correct-sign">&#10004;</div>
+    <div id="rubber-rain"></div>
+  </div>
+</body>
+</html>
